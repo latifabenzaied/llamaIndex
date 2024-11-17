@@ -5,7 +5,7 @@ from llama_index.core.settings import Settings
 from llama_index.readers.file import PDFReader
 import os
 
-GOOGLE_API_KEY = "AIzaSyDTIC11PJHkOs6PkpE-yDNsvjddLYrbNpc"
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 llm= Gemini(
     model="models/gemini-1.5-flash",
     api_key=GOOGLE_API_KEY,
