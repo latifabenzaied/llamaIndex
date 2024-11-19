@@ -19,11 +19,11 @@ index = VectorStoreIndex.from_documents(documents,show_progress=True)
 
 
 def ask_gemini(query):
-    # Interroger LlamaIndex pour obtenir des informations pertinentes
+
 
     query_engine = index.as_query_engine(llm=llm)
     response =query_engine.query(query)
-    # prompt = f"Voici un résumé du fichier PDF que vous avez chargé : {documents}\nRépondez à la question suivante en utilisant ces informations : {query}"
+
     prompt = f"""
     Je vais te fournir une description d'offre d'emploi et un CV de candidat. 
     Peux-tu répondre par 'Oui' ou 'Non' à la question suivante, puis fournir une justification breve de ta réponse ?

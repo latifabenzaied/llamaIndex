@@ -16,9 +16,10 @@ class GeminiService:
     def ask_gemini(self, offer, cv_text):
         """Demande au modèle Gemini d'analyser la compatibilité"""
         prompt = f"""
-        Je vais te fournir une description d'offre d'emploi et un CV de candidat. 
-        Peux-tu répondre par 'Oui' ou 'Non' à la question suivante, puis fournir une justification breve de ta réponse ?
-        Le candidat est-il compatible avec l'offre d'emploi ci-dessous ?
+       Je vais te fournir une description d'offre d'emploi et un CV. 
+       Réponds brièvement à la question suivante comme si tu étais un responsable RH en t'adressant directement au candidat avec 'vous'.
+       Si la candidature est refusée, explique en une phrase la raison du refus en utilisant 'vous'. Si la réponse est positive, réponds simplement 'Oui' sans justification.
+       Es-tu compatible avec l'offre d'emploi ci-dessous ?
 
         1. Description de l'offre : 
         {offer}
@@ -36,4 +37,5 @@ class GeminiService:
         document_indexer.load_documents()
         document_indexer.create_index()
         query_engine = document_indexer.get_index().as_query_engine(llm=self.llm)
+        print(query_engine)
         return query_engine.query("Extraire le texte du CV")

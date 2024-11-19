@@ -18,6 +18,7 @@ def check_compatibility():
     offer = data.get('offer')
     cv_path = data.get('cv_path')
 
+
     if not offer or not cv_path:
         return jsonify({"error": "L'offre et le chemin du CV sont requis"}), 400
 
