@@ -65,9 +65,8 @@ def ask_gemini(query):
     return gemini_response.text
 query = "Quels sont les principaux points abordés dans ce CV ?"
 gemini_answer = ask_gemini(query)
+# print(f"{gemini_answer}")
 print(f"{gemini_answer}")
-
-
 # print(documents)
 # pdf_data = PDFReader().load_data(file=pdf_path)
 # documents = (SimpleDirectoryReader(input_dir='C:\\Users\\latifa\\Desktop\\latifa.pdf', recursive=True).
